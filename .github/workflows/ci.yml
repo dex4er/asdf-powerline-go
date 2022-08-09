@@ -29,7 +29,7 @@ jobs:
       - name: Test plugin
         uses: asdf-vm/actions/plugin-test@v1
         with:
-          command: powerline-go --version
+          command: powerline-go
 
   trunk:
     runs-on: ubuntu-latest
