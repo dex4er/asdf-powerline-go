@@ -12,6 +12,14 @@ asdf install powerline-go latest
 asdf global powerline-go latest
 ```
 
+### MacOS
+
+If there is no binary for MacOS with M1 chip, then you might have to run:
+
+```shell
+arch -x86_64 asdf install powerline-go latest
+```
+
 ## Use
 
 Check out the [asdf](https://github.com/asdf-vm/asdf) readme for instructions.
