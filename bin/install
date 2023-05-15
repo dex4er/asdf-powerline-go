@@ -71,7 +71,6 @@ function install() {
 
 	mkdir -p "${bin_install_path}"
 
-	tar zxf "${download_filename}"
 	cp -fp "${download_filename}" "${bin_install_path}/powerline-go"
 
 	popd >/dev/null
