@@ -71,6 +71,7 @@ function install() {
 
 	mkdir -p "${bin_install_path}"
 
+	chmod +x "${download_filename}"
 	cp -fp "${download_filename}" "${bin_install_path}/powerline-go"
 
 	popd >/dev/null
