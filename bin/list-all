@@ -4,7 +4,7 @@ set -euo pipefail
 shopt -s inherit_errexit 2>/dev/null || true
 
 function gh_curl() {
-	if [[ -n ${GITHUB_TOKEN:-} ]]; then
+	if [[ -n ${GITHUB_TOKEN-} ]]; then
 		curl -s -H "Authorization: token ${GITHUB_TOKEN}" "$@"
 	else
 		curl -s "$@"

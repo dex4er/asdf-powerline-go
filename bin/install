@@ -8,7 +8,7 @@ shopt -s inherit_errexit 2>/dev/null || true
 [[ -z ${ASDF_INSTALL_PATH+x} ]] && echo "ASDF_INSTALL_PATH is required" && exit 1
 
 function gh_curl() {
-	if [[ -n ${GITHUB_TOKEN:-} ]]; then
+	if [[ -n ${GITHUB_TOKEN-} ]]; then
 		curl -fLsS -H "Authorization: token ${GITHUB_TOKEN}" "$@"
 	else
 		curl -fLsS "$@"
@@ -26,7 +26,7 @@ function install() {
 
 	local tmp_download_dir
 
-	if [[ -z ${TMPDIR:-} ]]; then
+	if [[ -z ${TMPDIR-} ]]; then
 		tmp_download_dir=$(mktemp -d)
 	else
 		tmp_download_dir=${TMPDIR%/}
@@ -49,7 +49,7 @@ function install() {
 	local repo="justjanne/powerline-go"
 	local download_filename="powerline-go-${platform}-${arch}"
 
-	if [[ -n ${GITHUB_TOKEN:-} ]]; then
+	if [[ -n ${GITHUB_TOKEN-} ]]; then
 		local asset_url
 		asset_url="https://api.github.com/repos/${repo}/releases/tags/${prefix}${version}"
 		download_url=$(gh_curl -H "Accept: application/vnd.github.v3.raw" "${asset_url}" | jq -r ".assets | map(select(.name == \"${download_filename}\"))[0].url")
